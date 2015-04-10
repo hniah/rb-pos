@@ -37,6 +37,9 @@ gem 'devise'
 gem 'simple_form'
 gem 'rails_admin'
 gem 'paperclip'
+gem 'country_select'
+gem 'enumerize'
+gem 'aws-sdk', '~> 1.5.7'
 
 group :development do
   gem 'letter_opener'
