@@ -8,7 +8,8 @@ html
     = csrf_meta_tags
   body
     #wrap-all.container
-      #header
-        = render 'shares/navigation'
-      #main-container
-        = yield
+      .col-md-12
+        #header
+          = render 'shares/navigation'
+        #main-container
+          = yield
