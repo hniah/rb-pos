@@ -2,9 +2,13 @@ doctype html
 html
   head
     title
-      | Onestep
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+      | One Step
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
     = csrf_meta_tags
   body
-    = yield
+    #wrap-all.container
+      #header
+        = render 'shares/navigation'
+      #main-container
+        = yield
