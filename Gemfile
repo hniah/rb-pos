@@ -36,6 +36,7 @@ gem 'slim'
 gem 'devise'
 gem 'simple_form'
 gem 'rails_admin'
+gem 'paperclip'
 
 group :development do
   gem 'letter_opener'
