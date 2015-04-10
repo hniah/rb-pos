@@ -36,6 +36,11 @@ gem 'slim'
 gem 'devise'
 gem 'simple_form'
 
+group :development do
+  gem 'letter_opener'
+  gem 'better_errors'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -45,7 +50,6 @@ group :development, :test do
   gem 'spring'
 
   gem 'rspec-rails' # After bundle, run: rails generate rspec:install
-  gem 'better_errors'
   gem 'binding_of_caller'
   gem 'factory_girl_rails'
   gem 'shoulda'
