@@ -1,13 +1,26 @@
-h2 Change Password
+h2 Update Profile
 = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = devise_error_messages!
-  = f.input :password
-  i
-    | (leave blank if you don't want to change it)
-  = f.input :password_confirmation
-  = f.input :current_password
-  i
-    | (we need your current password to confirm your changes)
-  .actions
-    = f.submit 'Change'
+    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+      p
+        | Currently waiting confirmation for:
+        = resource.unconfirmed_email
+    = f.error_notification
+    = f.input :first_name
+    = f.input :last_name
+    = f.input :dob, as: :date_picker
+    = f.input :gender
+    = f.input :country
+    = f.input :area_interests, input_html:{data:{role:'tagsinput'}}, as: :string
+    = f.input :avatar, as: :file
+    - if resource.avatar.exists?
+      = image_tag resource.avatar.url(:thumb)
+    = f.input :current_password, hint: 'We need your current password to confirm your changes', required: true
+    .form-actions
+      = f.button :button, 'Reset', type: 'reset', class: 'btn'
+      = f.button :submit, 'Save change'
+
+javascript:
+  $(document).ready(function () {
+    $('input.date_picker').datepicker({format: 'yyyy-mm-dd'});
+  });
 
