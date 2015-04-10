@@ -7,9 +7,10 @@ html
     = javascript_include_tag 'application'
     = csrf_meta_tags
   body
+    = flash_messages
     #wrap-all.container
       .col-md-12
         #header
-          = render 'shares/navigation'
+          = render 'shares/header'
         #main-container
           = yield
