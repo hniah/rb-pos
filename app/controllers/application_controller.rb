@@ -16,4 +16,12 @@ class ApplicationController < ActionController::Base
       u.permit(:email, :password, :password_confirmation, :current_password, :username)
     end
   end
+
+  def after_sign_in_path_for(resource)
+    if resource.is_a?(Admin)
+      rails_admin_path
+    else
+      root_path
+    end
+  end
 end
