@@ -35,6 +35,7 @@ gem 'rails_utils'
 gem 'slim'
 gem 'devise'
 gem 'simple_form'
+gem 'rails_admin'
 
 group :development do
   gem 'letter_opener'
