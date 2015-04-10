@@ -41,6 +41,7 @@ gem 'country_select'
 gem 'enumerize'
 gem 'aws-sdk', '~> 1.5.7'
 
+
 group :development do
   gem 'letter_opener'
   gem 'better_errors'
@@ -60,5 +61,6 @@ group :development, :test do
   gem 'shoulda'
   gem 'awesome_print'
   gem 'capybara' # add "require 'capybara/rspec'" to spec_helper
+  gem 'dotenv-rails'
 end
 

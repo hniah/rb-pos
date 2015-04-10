@@ -95,6 +95,9 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    dotenv (2.0.1)
+    dotenv-rails (2.0.1)
+      dotenv (= 2.0.1)
     enumerize (0.11.0)
       activesupport (>= 3.2)
     erubis (2.7.0)
@@ -290,6 +293,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   country_select
   devise
+  dotenv-rails
   enumerize
   factory_girl_rails
   jbuilder (~> 2.0)
