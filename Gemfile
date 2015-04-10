@@ -40,7 +40,8 @@ gem 'paperclip'
 gem 'country_select'
 gem 'enumerize'
 gem 'aws-sdk', '~> 1.5.7'
-
+gem 'bootstrap-tagsinput-rails'
+gem 'bootstrap-datepicker-rails'
 
 group :development do
   gem 'letter_opener'
