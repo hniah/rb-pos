@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'application#home'
 
-  resource :user, only: [:change_password] do
+  resource :user, only: [:show] do
     collection do
       patch 'update_password'
       get 'change_password'

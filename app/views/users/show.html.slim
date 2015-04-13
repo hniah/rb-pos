@@ -1,0 +1,27 @@
+#profile-show-container
+  h2 My Profile
+  .row
+    .col-md-4.photo
+      = image_tag @user.avatar.url(:large), class: 'img-responsive img-rounded'
+    .col-md-8.information
+      h3.full-name #{@user.first_name} #{@user.last_name}
+      div.user_info
+        table.table
+          tr.gender
+            th.field_lbl Gender:
+            td.field_val
+              = @user.gender.capitalize
+          tr.dob
+            th.field_lbl DOB:
+            td.field_val
+              = @user.dob.present? ? @user.dob.strftime("%d/%m/%Y") : ''
+          tr.country
+            th.field_lbl Country:
+            td.field_val
+              = @user.country_name
+          tr.country
+            th.field_lbl Area interests:
+            td.field_val
+              = tag_links(@user.area_interests)
+
+

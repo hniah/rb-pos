@@ -19,4 +19,11 @@ class User < ActiveRecord::Base
   validates_attachment :avatar,
                        content_type: {content_type: /\Aimage\/.*\Z/},
                        size: VALIDATE_SIZE
+
+  def country_name
+    if ISO3166::Country[self.country].present?
+      country = ISO3166::Country[self.country]
+      country.translations[I18n.locale.to_s] || country.name
+    end
+  end
 end
