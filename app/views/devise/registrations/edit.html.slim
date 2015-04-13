@@ -16,8 +16,9 @@ h2 Update Profile
       = image_tag resource.avatar.url(:thumb)
     = f.input :current_password, hint: 'We need your current password to confirm your changes', required: true
     .form-actions
-      = f.button :button, 'Reset', type: 'reset', class: 'btn'
-      = f.button :submit, 'Save change'
+      = f.button :button, 'Reset', type: 'reset', class: 'btn btn-default'
+      = f.button :submit, 'Save change', class: 'btn btn-success'
+
 
 javascript:
   $(document).ready(function () {

@@ -1,0 +1,4 @@
+en:
+  users:
+    passwords:
+      update_success: Your password has been changed successfully.

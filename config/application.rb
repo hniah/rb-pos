@@ -22,5 +22,8 @@ module Onestep
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.time_zone = 'Singapore'
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{yml}')]
+    config.autoload_paths += %W(#{config.root}/lib)
   end
 end

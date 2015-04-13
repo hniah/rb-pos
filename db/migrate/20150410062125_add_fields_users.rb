@@ -7,6 +7,6 @@ class AddFieldsUsers < ActiveRecord::Migration
     add_column :users, :dob, :date
     add_column :users, :gender, :string
     add_column :users, :area_interests, :text
-    add_attachment :users, :avatar
+    add_attachment :user, :avatar
   end
 end
