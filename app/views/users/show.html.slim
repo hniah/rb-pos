@@ -3,9 +3,9 @@
   .row
     .col-md-4.photo
       = image_tag @user.avatar.url(:large), class: 'img-responsive img-rounded'
-    .col-md-8.information
+    .col-md-8.wrap-user-info
       h3.full-name #{@user.first_name} #{@user.last_name}
-      div.user_info
+      div.user-info
         table.table
           tr.gender
             th.field_lbl Gender:
@@ -23,5 +23,9 @@
             th.field_lbl Area interests:
             td.field_val
               = tag_links(@user.area_interests)
+          tr.description
+            th.field_lbl Description:
+            td.field_val
+              = @user.description
 
 

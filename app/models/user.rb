@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   extend Enumerize
   include RailsAdmin::User
+
+  belongs_to :location
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
@@ -21,9 +23,8 @@ class User < ActiveRecord::Base
                        size: VALIDATE_SIZE
 
   def country_name
-    if ISO3166::Country[self.country].present?
-      country = ISO3166::Country[self.country]
-      country.translations[I18n.locale.to_s] || country.name
+    if self.location.present?
+      self.location.name
     end
   end
 end

@@ -9,11 +9,12 @@ h2 Update Profile
     = f.input :last_name
     = f.input :dob, as: :date_picker, input_html: { value: resource.dob.present? ? resource.dob.strftime("%d/%m/%Y") : ''}
     = f.input :gender
-    = f.input :country
+    = f.association :location, label: 'Country', prompt_text: 'Select your country'
     = f.input :area_interests, input_html:{data:{role:'tagsinput'}}, as: :string
     = f.input :avatar, as: :file
     - if resource.avatar.exists?
       = image_tag resource.avatar.url(:thumb)
+    = f.input :description
     = f.input :current_password, hint: 'We need your current password to confirm your changes', required: true
     .form-actions
       = f.button :button, 'Reset', type: 'reset', class: 'btn btn-default'
