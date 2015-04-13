@@ -17,8 +17,18 @@ module RailsAdmin::User
       edit do
         field :email
         field :username
-        field :password
+        field :password do
+          required false
+        end
         field :password_confirmation
+        field :first_name
+        field :last_name
+        field :gender
+        field :dob
+        field :location
+        field :avatar
+        field :description
+        field :area_interests
       end
     end
   end

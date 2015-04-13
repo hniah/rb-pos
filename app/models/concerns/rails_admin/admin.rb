@@ -14,7 +14,9 @@ module RailsAdmin::Admin
 
       edit do
         field :email
-        field :password
+        field :password do
+          required false
+        end
         field :password_confirmation
       end
     end
