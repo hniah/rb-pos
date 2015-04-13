@@ -25,3 +25,6 @@
 # Ignore VIM swp files
 *.swp
 *.swo
+
+#images test
+/public/users/avatars

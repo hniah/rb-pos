@@ -7,7 +7,7 @@ h2 Update Profile
     = f.error_notification
     = f.input :first_name
     = f.input :last_name
-    = f.input :dob, as: :date_picker
+    = f.input :dob, as: :date_picker, input_html: { value: resource.dob.present? ? resource.dob.strftime("%d/%m/%Y") : ''}
     = f.input :gender
     = f.input :country
     = f.input :area_interests, input_html:{data:{role:'tagsinput'}}, as: :string
@@ -22,6 +22,6 @@ h2 Update Profile
 
 javascript:
   $(document).ready(function () {
-    $('input.date_picker').datepicker({format: 'yyyy-mm-dd'});
+    $('input.date_picker').datepicker({format: 'dd/mm/yyyy'});
   });
 
