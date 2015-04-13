@@ -3,5 +3,5 @@ h2 Resend confirmation instructions
   = devise_error_messages!
   = f.input :email, autofocus: true
   .actions
-    = f.submit 'Resend confirmation instructions'
+    = f.submit 'Resend confirmation instructions', class: 'btn btn-success'
 = render 'devise/shared/links'

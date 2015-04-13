@@ -3,5 +3,5 @@ h2 Forgot your password?
   = devise_error_messages!
   = f.input :email
   .actions
-    = f.submit 'Send me reset password instructions'
+    = f.submit 'Send me reset password instructions', class: 'btn btn-success'
 = render 'devise/shared/links'

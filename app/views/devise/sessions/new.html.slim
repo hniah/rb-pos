@@ -5,5 +5,5 @@ h2 Log in
   - if devise_mapping.rememberable?
     = f.input :remember_me, as: :boolean
   .actions
-    = f.submit 'Log in'
+    = f.submit 'Log in', class: 'btn btn-success'
 = render 'devise/shared/links'

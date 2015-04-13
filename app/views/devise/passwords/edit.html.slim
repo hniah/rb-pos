@@ -5,5 +5,5 @@ h2 Change your password
   = f.input :password, autofocus: true, autocomplete: 'off'
   = f.input :password_confirmation, label: 'Confirm new password', autocomplete: 'off'
   .actions
-    = f.submit 'Change my password'
+    = f.submit 'Change my password', class: 'btn btn-success'
 = render 'devise/shared/links'
