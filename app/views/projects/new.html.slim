@@ -1,0 +1,13 @@
+#project-new-container
+  h2 Create new project
+  = simple_form_for @project do |f|
+    = f.association :category, prompt_text: 'Select category'
+    = f.input :title
+    = f.input :difficult_level
+    = f.input :cost, input_html: { min: '0', step: 'any' }
+    = f.input :time, input_html: { min: '0', step: 'any'}
+    = f.input :privacy
+    = f.input :tags, input_html:{data:{role:'tagsinput'}}, as: :string
+    = f.input :description
+    = f.input :can_clone, as: :boolean
+    = f.submit 'Submit', class: 'btn btn-success'

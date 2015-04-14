@@ -1,0 +1,7 @@
+en:
+  enumerize:
+    project:
+      difficult_level:
+        easy: 'Easy'
+        normal: 'Normal'
+        hard: 'Hard'

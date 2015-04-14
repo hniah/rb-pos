@@ -1,0 +1,6 @@
+en:
+  projects:
+    create:
+      message:
+        success: 'Project have been created successfully'
+        failure: 'Project have been created unsuccessfully'

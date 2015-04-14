@@ -4,9 +4,9 @@ class Project < ActiveRecord::Base
   belongs_to :user
   has_many :project_steps
 
-  validates_presence_of :user_id, :category_id, :title, :cost, :time, :privacy, :difficult_level, :can_clone, :description
+  validates_presence_of :user_id, :category_id, :title, :cost, :time, :privacy, :difficult_level
   validates_numericality_of :cost, only_integer: true
-  validates_numericality_of :difficult_level, greater_than: 0
 
   enumerize :privacy, in: [:private, :public], default: :private
+  enumerize :difficult_level, in: [:easy, :normal, :hard], default: :easy
 end

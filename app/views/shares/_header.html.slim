@@ -10,6 +10,8 @@ nav.navbar.navbar-default
     .collapse.navbar-collapse
       ul.nav.navbar-nav
         - if user_signed_in?
+          li
+            = link_to 'Create Project', new_project_path
           li.dropdown
             a.dropdown-toggle aria-expanded='false' data-toggle='dropdown' href='#' role='button'
               | Dashboard
