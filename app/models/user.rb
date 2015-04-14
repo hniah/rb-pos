@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   extend Enumerize
   include RailsAdmin::User
-
+  has_many  :projects
   belongs_to :location
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
