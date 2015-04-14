@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20150414040434) do
     t.integer "time"
     t.string  "privacy"
     t.text    "tags"
-    t.integer "can_clone",       default: 0
+    t.integer "cloneable",       default: 0
   end
 
   create_table "users", force: :cascade do |t|

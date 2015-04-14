@@ -10,7 +10,7 @@ class CreateProjectsTable < ActiveRecord::Migration
       t.integer :time
       t.string :privacy
       t.text :tags
-      t.integer :can_clone, default: 0
+      t.integer :cloneable, default: 0
     end
   end
 end
