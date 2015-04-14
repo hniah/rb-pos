@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20150414040434) do
     t.integer "category_id"
     t.text    "description"
     t.integer "user_id"
-    t.integer "difficult_level"
+    t.string  "difficult_level"
     t.integer "cost"
     t.integer "time"
     t.string  "privacy"

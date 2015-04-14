@@ -5,7 +5,7 @@ class CreateProjectsTable < ActiveRecord::Migration
       t.references :category
       t.text :description
       t.references :user
-      t.integer :difficult_level
+      t.string :difficult_level
       t.integer :cost
       t.integer :time
       t.string :privacy
