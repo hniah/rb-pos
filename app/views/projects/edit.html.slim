@@ -1,5 +1,5 @@
-#project-new-container
-  h2 Create new project
+#project-edit-container
+  h2 Edit project
   = simple_nested_form_for @project do |f|
     = f.association :category, prompt_text: 'Select category'
     = f.input :title

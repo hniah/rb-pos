@@ -13,11 +13,10 @@ describe ProjectsController do
     end
 
     context 'valid project param' do
-      let(:project_params) { attributes_for(:project, category_id: category.id, user_id: user.id)}
+      let(:project_params) { attributes_for(:project, category_id: category.id, user_id: user.id, project_steps_attributes: [attributes_for(:project_step)])}
 
       it 'create new project' do
         do_request
-        expect(response).to redirect_to root_path
         expect(flash[:notice]).to_not be_nil
       end
     end
@@ -27,7 +26,6 @@ describe ProjectsController do
       it 're-renders the form project and sets the error message' do
         do_request
 
-        expect(response).to redirect_to root_path
         expect(flash[:alert]).to_not be_nil
       end
     end
