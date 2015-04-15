@@ -2,9 +2,9 @@ class ProjectsController < ApplicationController
   before_filter :authenticate_user!
 
   def show
-
+    @project = get_project
   end
-  
+
   def new
     @project = Project.new
   end
@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
   def create
     @project =  current_user.projects.new(project_params)
     if @project.save
-      redirect_to edit_project_path(@project), notice: t('.message.success')
+      redirect_to my_projects_path, notice: t('.message.success')
     else
       flash[:alert] = t('.message.failure')
       render :new
@@ -26,7 +26,7 @@ class ProjectsController < ApplicationController
   def update
     @project = get_project
     if @project.update(project_params)
-      redirect_to edit_project_path(@project), notice: t('.message.success')
+      redirect_to my_projects_path, notice: t('.message.success')
     else
       flash[:alert] = t('.message.failure')
       render :edit
