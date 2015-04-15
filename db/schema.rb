@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20150414040434) do
     t.integer  "time"
     t.string   "privacy"
     t.text     "tags"
-    t.integer  "cloneable",           default: 0
+    t.boolean  "cloneable",           default: false
     t.string   "banner_file_name"
     t.string   "banner_content_type"
     t.integer  "banner_file_size"
