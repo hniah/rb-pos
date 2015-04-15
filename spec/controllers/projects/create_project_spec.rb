@@ -5,7 +5,7 @@ describe ProjectsController do
 
   describe 'POST #create' do
     let!(:category) { create(:category) }
-    let(:user) { create(:user) }
+    let!(:user) { create(:user) }
     before { sign_in user }
 
     def do_request

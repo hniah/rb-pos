@@ -13,7 +13,6 @@ describe 'User updates profile feature' do
     fill_in 'Last name', with: 'Hoang'
     select 'Male', from: 'Gender'
     fill_in 'Dob', with: '09/08/1918'
-    select 'Singapore', from: 'Country'
     attach_file 'Avatar', Rails.root.join('spec','fixtures','test-small.png')
     fill_in 'Current password', with: '123123123'
 
