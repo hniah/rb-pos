@@ -38,6 +38,15 @@
               = resource.input :name
               hr
             = f.link_to_add 'Add new resource', :resources, class: 'btn btn-default'
+      .col-md-3
+        .panel.panel-info
+          .panel-heading
+            h3.panel-title Services
+          .panel-body
+            = f.fields_for :services do |resource|
+              = resource.input :name
+              hr
+            = f.link_to_add 'Add new service', :services, class: 'btn btn-default'
 
     = f.input :cloneable, as: :boolean
     = f.submit 'Submit', class: 'btn btn-success'

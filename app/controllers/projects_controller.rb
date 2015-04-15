@@ -50,6 +50,10 @@ class ProjectsController < ApplicationController
                                     resources_attributes: [
                                         :id,
                                         :name
+                                    ],
+                                    services_attributes: [
+                                        :id,
+                                        :name
                                     ]
                                     )
   end

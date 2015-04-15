@@ -16,7 +16,8 @@ describe ProjectsController do
 
       let(:project_params) { attributes_for(:project, category_id: category.id, user_id: user.id,
                                             project_steps_attributes: [attributes_for(:project_step)],
-                                            resources_attributes: [attributes_for(:resource)]
+                                            resources_attributes: [attributes_for(:resource)],
+                                            services_attributes: [attributes_for(:service)]
                                             )}
 
       it 'create new project' do
