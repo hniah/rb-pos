@@ -1,0 +1,25 @@
+#my-project-container.row
+  - @projects.each do |project|
+    .col-md-4.project
+      .cover-image
+        = link_to image_tag(project.picture.url(:thumb), class: 'img-responsive img-rounded'), project_path(project)
+      .project-name
+        = project.title
+      table.table.info
+        tr
+          td Rating
+          td Difficult
+          td Cost
+          td Time
+        tr
+          td ★★★★★
+          td
+            = project.difficult_level.capitalize
+          td
+            = project.cost
+          td
+            = project.time
+
+
+
+
