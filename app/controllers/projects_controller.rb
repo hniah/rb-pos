@@ -41,6 +41,7 @@ class ProjectsController < ApplicationController
                                     :privacy,
                                     :tags,
                                     :cloneable,
+                                    :banner,
                                     project_steps_attributes: [
                                       :id,
                                       :title,

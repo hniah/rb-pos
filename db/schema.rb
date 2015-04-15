@@ -51,16 +51,20 @@ ActiveRecord::Schema.define(version: 20150414040434) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string  "title"
-    t.integer "category_id"
-    t.text    "description"
-    t.integer "user_id"
-    t.string  "difficult_level"
-    t.integer "cost"
-    t.integer "time"
-    t.string  "privacy"
-    t.text    "tags"
-    t.integer "cloneable",       default: 0
+    t.string   "title"
+    t.integer  "category_id"
+    t.text     "description"
+    t.integer  "user_id"
+    t.string   "difficult_level"
+    t.integer  "cost"
+    t.integer  "time"
+    t.string   "privacy"
+    t.text     "tags"
+    t.integer  "cloneable",           default: 0
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
