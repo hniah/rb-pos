@@ -11,7 +11,7 @@ class CreateProjectsTable < ActiveRecord::Migration
       t.string :privacy
       t.text :tags
       t.boolean :cloneable, default: false
-      t.attachment :banner
+      t.attachment :picture
     end
   end
 end

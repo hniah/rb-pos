@@ -60,11 +60,11 @@ ActiveRecord::Schema.define(version: 20150415033159) do
     t.integer  "time"
     t.string   "privacy"
     t.text     "tags"
-    t.boolean  "cloneable",           default: false
-    t.string   "banner_file_name"
-    t.string   "banner_content_type"
-    t.integer  "banner_file_size"
-    t.datetime "banner_updated_at"
+    t.boolean  "cloneable",            default: false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   create_table "resources", force: :cascade do |t|

@@ -14,9 +14,9 @@
           = f.input :tags, input_html:{data:{role:'tagsinput'}}, as: :string
           = f.input :privacy
         .col-md-6
-          = f.input :banner, as: :file
-          - if @project.banner.exists?
-            = image_tag @project.banner.url(:thumb)
+          = f.input :picture, as: :file
+          - if @project.picture.exists?
+            = image_tag @project.picture.url(:thumb)
           = f.input :description
     .row
       .col-md-6
