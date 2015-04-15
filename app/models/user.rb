@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
+  validates :username, uniqueness: true
   validates_presence_of :username
 
   enumerize :gender, in: [:male, :female], default: :male
