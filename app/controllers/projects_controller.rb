@@ -46,7 +46,12 @@ class ProjectsController < ApplicationController
                                       :id,
                                       :title,
                                       :description
-                                    ])
+                                    ],
+                                    resources_attributes: [
+                                        :id,
+                                        :name
+                                    ]
+                                    )
   end
 
   def project_id

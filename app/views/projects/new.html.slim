@@ -1,23 +1,42 @@
 #project-new-container
   h2 Create new project
   = simple_nested_form_for @project do |f|
-    = f.association :category, prompt_text: 'Select category'
-    = f.input :title
-    = f.input :difficult_level
-    = f.input :cost, input_html: { min: '0', step: 'any' }
-    = f.input :time, input_html: { min: '0', step: 'any'}
-    = f.input :privacy
-    = f.input :tags, input_html:{data:{role:'tagsinput'}}, as: :string
-    = f.input :description
-    = f.input :banner, as: :file
     .panel.panel-info
       .panel-heading
-        h3.panel-title Steps
+        h3.panel-title Information
       .panel-body
-        = f.fields_for :project_steps do |step_from|
-          = step_from.input :title
-          = step_from.input :description
-          hr
-        = f.link_to_add 'Add new step', :project_steps, class: 'btn btn-default'
+        .col-md-6
+          = f.association :category, prompt_text: 'Select category'
+          = f.input :title
+          = f.input :difficult_level
+          = f.input :cost, input_html: { min: '0', step: 'any' }
+          = f.input :time, input_html: { min: '0', step: 'any'}
+          = f.input :tags, input_html:{data:{role:'tagsinput'}}, as: :string
+          = f.input :privacy
+        .col-md-6
+          = f.input :banner, as: :file
+          = f.input :description
+    .row
+      .col-md-6
+        .panel.panel-info
+          .panel-heading
+            h3.panel-title Steps
+          .panel-body
+            = f.fields_for :project_steps do |step_from|
+              = step_from.input :title
+              = step_from.input :description
+              hr
+            = f.link_to_add 'Add new step', :project_steps, class: 'btn btn-default'
+      .col-md-3
+        .panel.panel-info
+          .panel-heading
+            h3.panel-title Resources
+          .panel-body
+            = f.fields_for :resources do |resource|
+              = resource.input :name
+              hr
+            = f.link_to_add 'Add new resource', :resources, class: 'btn btn-default'
+
     = f.input :cloneable, as: :boolean
     = f.submit 'Submit', class: 'btn btn-success'
+

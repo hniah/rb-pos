@@ -13,7 +13,11 @@ describe ProjectsController do
     end
 
     context 'valid project param' do
-      let(:project_params) { attributes_for(:project, category_id: category.id, user_id: user.id, project_steps_attributes: [attributes_for(:project_step)])}
+
+      let(:project_params) { attributes_for(:project, category_id: category.id, user_id: user.id,
+                                            project_steps_attributes: [attributes_for(:project_step)],
+                                            resources_attributes: [attributes_for(:resource)]
+                                            )}
 
       it 'create new project' do
         do_request

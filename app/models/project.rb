@@ -4,6 +4,8 @@ class Project < ActiveRecord::Base
   belongs_to :user
   has_many :project_steps, inverse_of: :project
   accepts_nested_attributes_for :project_steps
+  has_many :resources, inverse_of: :project
+  accepts_nested_attributes_for :resources
 
   validates_presence_of :user_id, :category_id, :title, :cost, :time, :privacy, :difficult_level
   validates_numericality_of :cost, only_integer: true
