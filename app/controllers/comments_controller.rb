@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def index
     @project = get_project
-    @comments = @project.comment_threads.order('created_at desc').page(params[:page]).per(2)
+    @comments = @project.comment_threads.order('created_at desc').page(params[:page])
   end
 
   def create

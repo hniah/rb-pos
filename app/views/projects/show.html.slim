@@ -52,9 +52,9 @@
             .item-resource
               = service.name
   .comments
-    h2 Comments
+    h2 View Comments
     = render partial: 'comments/form', locals: { comment: @new_comment }
     #list-of-comments
       = render partial: 'comments/comment', collection: @comments, as: :comment
-
-    = link_to_load_more_comment(@comments, @project.id)
+    #wrap-pagination
+      = paginate @comments, params: {controller: :comments, action: :index, project_id: @project.id, id: nil}, remote: true
