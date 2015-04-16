@@ -1,1 +1,53 @@
 #show-project-container
+  .cover-image
+    = image_tag @project.picture.url(:original)
+  .panel.panel-info
+    .panel-heading
+      h3.panel-title Information
+    .panel-body
+      .project-info
+        h2.project-name
+          = @project.title
+        .author
+          span Author:
+          = @project.user.first_name
+        .category
+          span Category:
+          = @project.category.title
+        .tags
+          span Tags:
+          = project_tag_links(@project.tags)
+        .description
+          span Description:
+          = @project.description
+  .row
+    .col-md-6
+      .panel.panel-info
+        .panel-heading
+          h3.panel-title Steps
+        .panel-body
+          - @project.project_steps.each_with_index do |step, i|
+            .item-step
+              .step-level
+                = "Step #{i+1}"
+              .step-title
+                = step.title
+              .step-description
+                = step.description
+            hr
+    .col-md-3
+      .panel.panel-info
+        .panel-heading
+          h3.panel-title Resources
+        .panel-body
+          - @project.resources.each do |resource|
+            .item-resource
+              = resource_amazon_link(resource.name)
+    .col-md-3
+      .panel.panel-info
+        .panel-heading
+          h3.panel-title Services
+        .panel-body
+          - @project.services.each do |service|
+            .item-resource
+              = service.name
