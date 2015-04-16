@@ -1,0 +1,6 @@
+$('#list-of-comments').append('<%= escape_javascript render(@comments) %>');
+<% if @comments.last_page? %>
+$('#pagination').remove();
+<% else %>
+$('#pagination').html('<%= escape_javascript(link_to_load_more_comment(@comments, @project.id).to_s) %>');
+<% end %>

@@ -3,8 +3,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = get_project
-    @comments = @project.comment_threads.order('created_at desc')
-    @new_comment = Comment.build_from(@project, current_user.id, "")
+    @comments = @project.comment_threads.order('created_at desc').page(params[:page]).per(2)
+    @new_comment = Comment.build_from(@project, current_user.id, '')
   end
 
   def new

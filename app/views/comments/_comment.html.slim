@@ -3,5 +3,5 @@
   = link_to '×', comment_path(comment), method: :delete, remote: true, data: { confirm: 'Are you sure you want to remove this comment?', disable_with: '×'} , class: 'close'
   .username
     = comment.user.username
-  .date-comment= comment.updated_at.strftime('at %m:%l %p on %d %b, %Y')
+  .date-comment= comment.updated_at.strftime('at %M:%l %p on %d %b, %Y')
   p.content-comment= comment.body

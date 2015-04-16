@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'application#home'
 
-  resources :comments, :only => [:create, :destroy]
+  resources :comments, :only => [:create, :destroy, :index]
   resource :users, only: [:show] do
     collection do
       patch 'update_password'

@@ -1,4 +1,9 @@
 class CommentsController < ApplicationController
+  def index
+    @project = get_project
+    @comments = @project.comment_threads.order('created_at desc').page(params[:page]).per(2)
+  end
+
   def create
     @comment_hash = params[:comment]
     @obj = @comment_hash[:commentable_type].constantize.find(@comment_hash[:commentable_id])
@@ -17,5 +22,13 @@ class CommentsController < ApplicationController
     else
       render js: "alert('error deleting comment');"
     end
+  end
+
+  def project_id
+    params.require(:project_id)
+  end
+
+  def get_project
+    Project.find(project_id)
   end
 end
