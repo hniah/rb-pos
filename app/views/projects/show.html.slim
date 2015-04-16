@@ -51,3 +51,7 @@
           - @project.services.each do |service|
             .item-resource
               = service.name
+  .comments
+    h2 Comments
+    = render partial: 'comments/form', locals: { comment: @new_comment }
+    = render partial: 'comments/comment', collection: @comments, as: :comment

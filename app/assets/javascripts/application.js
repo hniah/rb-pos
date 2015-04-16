@@ -16,3 +16,4 @@
 //= require bootstrap-tagsinput
 //= require bootstrap-datepicker
 //= require jquery_nested_form
+//= require comments

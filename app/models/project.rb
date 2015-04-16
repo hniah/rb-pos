@@ -1,4 +1,5 @@
 class Project < ActiveRecord::Base
+  acts_as_commentable
   extend Enumerize
   belongs_to :category
   belongs_to :user
