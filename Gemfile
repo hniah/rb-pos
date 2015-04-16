@@ -44,6 +44,7 @@ gem 'aws-sdk', '~> 1.5.7'
 gem 'bootstrap-tagsinput-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'nested_form'
+gem 'acts_as_commentable_with_threading'
 
 group :development do
   gem 'letter_opener'
