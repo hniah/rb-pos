@@ -312,6 +312,7 @@ DEPENDENCIES
   factory_girl_rails
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   letter_opener
   nested_form
   paperclip

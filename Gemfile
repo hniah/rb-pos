@@ -45,6 +45,7 @@ gem 'bootstrap-tagsinput-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'nested_form'
 gem 'acts_as_commentable_with_threading'
+gem 'kaminari'
 
 group :development do
   gem 'letter_opener'
