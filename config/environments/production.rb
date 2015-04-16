@@ -80,6 +80,8 @@ Rails.application.configure do
   # Generate digests for assets URLs.
   config.assets.digest = true
 
+  config.serve_static_assets = true
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
