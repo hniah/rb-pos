@@ -13,4 +13,9 @@ module ProjectHelper
   def link_to_load_more_comment(comments, project_id)
     link_to_next_page(comments, 'Load More',params: {controller: 'comments', action: 'index', remote: true, project_id: project_id}, id: 'pagination').html_safe
   end
+
+  def resource_freelancer_link(name)
+    link_to(name, 'http://freelancer.com', target: '_blank').html_safe
+  end
+
 end

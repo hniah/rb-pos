@@ -50,7 +50,7 @@
         .panel-body
           - @project.services.each do |service|
             .item-resource
-              = service.name
+              = resource_freelancer_link(service.name)
   .comments
     h2 View Comments
     = render partial: 'comments/form', locals: { comment: @new_comment }
