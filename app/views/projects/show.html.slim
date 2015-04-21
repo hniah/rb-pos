@@ -1,4 +1,6 @@
 #show-project-container
+  - if current_user.present? && @project.project_of?
+    = link_to 'Edit', edit_project_path(@project), class: 'btn btn-success'
   .cover-image
     = image_tag @project.picture.url(:original)
   .panel.panel-info
@@ -51,10 +53,11 @@
           - @project.services.each do |service|
             .item-resource
               = resource_freelancer_link(service.name)
-  .comments
-    h2 View Comments
-    = render partial: 'comments/form', locals: { comment: @new_comment }
-    #list-of-comments
-      = render partial: 'comments/comment', collection: @comments, as: :comment
-    #wrap-pagination
-      = paginate @comments, params: {controller: :comments, action: :index, project_id: @project.id, id: nil}, remote: true
+  - if @new_comment.present?
+    .comments
+      h2 View Comments
+      = render partial: 'comments/form', locals: { comment: @new_comment }
+      #list-of-comments
+        = render partial: 'comments/comment', collection: @comments, as: :comment
+      #wrap-pagination
+        = paginate @comments, params: {controller: :comments, action: :index, project_id: @project.id, id: nil}, remote: true

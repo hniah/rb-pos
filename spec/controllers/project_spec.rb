@@ -30,7 +30,7 @@ describe ProjectsController do
     it 'renders list of projects' do
       do_request
 
-      expect(response).to render_template :my_project
+      expect(response).to render_template :index
       expect(:projects).not_to be_nil
     end
   end

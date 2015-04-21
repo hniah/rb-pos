@@ -1,0 +1,12 @@
+#wrap-search{
+  margin: 10px 0;
+  text-align: right;
+  .project_search{
+    display: inline-block;
+    .input-search{
+      border-radius: 5px;
+      margin: 0 5px;
+      border: 1px solid #ccc;
+    }
+  }
+}

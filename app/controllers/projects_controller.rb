@@ -1,10 +1,21 @@
 class ProjectsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter  :authenticate_user!, except: [:index, :show]
+  def index
+    if params[:q]
+      @q = Project.ransack(params[:q])
+      @projects = @q.result(distinct: true).where('projects.privacy = ?', :public)
+    else
+
+    end
+    render :index
+  end
 
   def show
     @project = get_project
     @comments = @project.comment_threads.order('created_at desc').page(params[:page])
-    @new_comment = Comment.build_from(@project, current_user.id, '')
+    if current_user.present?
+      @new_comment = Comment.build_from(@project, current_user.id, '')
+    end
   end
 
   def new
@@ -38,7 +49,7 @@ class ProjectsController < ApplicationController
 
   def my
     @projects = current_user.projects.order(id: :desc)
-    render :my_project
+    render :index
   end
 
   private

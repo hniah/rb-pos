@@ -12,8 +12,9 @@ describe 'User change password feature' do
 
     fill_in 'Password', with: '123123123'
     fill_in 'Password confirmation', with: '123123123'
+    ap page
+    click_on 'Change'
 
-    click_on 'Submit'
 
     expect(page).to_not have_css('#error_explanation')
     expect(page).to have_content 'Your password has been changed successfully.'

@@ -27,4 +27,7 @@ class Project < ActiveRecord::Base
                        content_type: {content_type: /\Aimage\/.*\Z/},
                        size: VALIDATE_SIZE
 
+  def project_of?(user)
+    return self.user_id == user.id
+  end
 end
