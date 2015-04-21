@@ -47,7 +47,7 @@ class ProjectsController < ApplicationController
 
   end
 
-  def my
+  def own
     @projects = current_user.projects.order(id: :desc)
     render :index
   end

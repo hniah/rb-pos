@@ -16,9 +16,9 @@
           td
             = project.difficult_level.capitalize
           td
-            = project.cost
+            = format_number_to_currency(project.cost)
           td
-            = project.time
+            = format_number_to_hours(project.time)
 
 
 

@@ -24,7 +24,7 @@ describe ProjectsController do
     let(:project) { create(:project, category_id: category.id, user_id: user.id) }
     before { sign_in user }
     def do_request
-      get :my
+      get :own
     end
 
     it 'renders list of projects' do

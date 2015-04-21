@@ -18,4 +18,11 @@ module ProjectHelper
     link_to(name, 'http://freelancer.com', target: '_blank').html_safe
   end
 
+  def format_number_to_currency(cost)
+    number_to_currency(cost, precision: 0)
+  end
+
+  def format_number_to_hours(hours)
+    '%{hours} Hours' % {hours: number_with_delimiter(hours)}
+  end
 end
