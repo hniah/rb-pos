@@ -46,6 +46,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'nested_form'
 gem 'acts_as_commentable_with_threading'
 gem 'kaminari'
+gem 'ransack'
 
 group :development do
   gem 'letter_opener'
