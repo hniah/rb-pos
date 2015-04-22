@@ -119,7 +119,7 @@ describe ProjectsController do
       it 'update project, show message success, redirect to my projects' do
         do_request
         expect(Project.last.title).to eq 'Build a shot'
-        expect(response).to redirect_to my_projects_path
+        expect(response).to redirect_to own_projects_path
         expect(flash[:notice]).to_not be_nil
       end
 
@@ -131,6 +131,38 @@ describe ProjectsController do
       it 'update project, return message fail' do
         do_request
         expect(response).to render_template :edit
+        expect(flash[:alert]).to_not be_nil
+      end
+    end
+  end
+
+  describe 'POST #user' do
+    let(:category) { create(:category) }
+    let(:current_user) { create(:user) }
+    let(:user2) { create(:user, username:'user2', email: 'user2@example.com') }
+    let(:project) { create(:project, category_id: category.id, user_id: user2.id) }
+    before { sign_in current_user }
+
+    def do_request
+      post :user, id: project.id
+    end
+
+    context 'valid param' do
+      it 'can add project of other user to my projects' do
+
+        do_request
+        expect(WishList.count).to eq 1
+        expect(response).to redirect_to my_projects_path
+        expect(flash[:notice]).to_not be_nil
+
+      end
+    end
+
+    context 'project dose not existed in my project' do
+      before { WishList.create(user_id: current_user.id, project_id: project.id) }
+      it 'redirect to list of projects' do
+        do_request
+        expect(response).to redirect_to my_projects_path
         expect(flash[:alert]).to_not be_nil
       end
     end
