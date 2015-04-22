@@ -1,4 +1,4 @@
-#my-project-container.row
+#index-projects-container.row
   - @projects.each do |project|
     .col-md-4.project
       .cover-image
@@ -19,6 +19,13 @@
             = format_number_to_currency(project.cost)
           td
             = format_number_to_hours(project.time)
+      .row
+        .col-sm-6.author_name
+          span.author Author:
+          span.name
+            = project.user.full_name
+        .col-sm-6.action
+          = status_action_project(current_user, project)
 
 
 

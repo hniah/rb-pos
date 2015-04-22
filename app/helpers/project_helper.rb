@@ -25,4 +25,15 @@ module ProjectHelper
   def format_number_to_hours(hours)
     '%{hours} Hours' % {hours: number_with_delimiter(hours)}
   end
+
+  def status_action_project(current_user, project)
+    if current_user.present?
+      if project.project_of?(current_user)
+        return link_to('Edit project', edit_project_path(project), class: 'btn btn-success').html_safe
+      elsif !WishList.existed?(current_user.id, project.id)
+        return link_to('Add to my project', user_project_path(project), class: 'btn btn-success', method: :post).html_safe
+      end
+    end
+    return ''
+  end
 end

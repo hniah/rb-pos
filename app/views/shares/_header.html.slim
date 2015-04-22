@@ -9,9 +9,9 @@ nav.navbar.navbar-default
       = link_to 'One Step', root_path, class: 'navbar-brand'
     .collapse.navbar-collapse
       ul.nav.navbar-nav
+        li
+          = link_to 'Projects', projects_path
         - if user_signed_in?
-          li
-            = link_to 'Create Project', new_project_path
           li.dropdown
             a.dropdown-toggle aria-expanded='false' data-toggle='dropdown' href='#' role='button'
               | Dashboard
@@ -23,6 +23,8 @@ nav.navbar.navbar-default
                 = link_to 'Update Profile', edit_user_registration_path
               li
                 = link_to 'Change Password', change_password_users_path
+              li
+                = link_to 'Create Project', new_project_path
               li
                 = link_to 'Own Projects', own_projects_path
               li

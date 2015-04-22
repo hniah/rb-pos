@@ -1,13 +1,13 @@
 class ProjectsController < ApplicationController
   before_filter  :authenticate_user!, except: [:index, :show]
+
   def index
     if params[:q]
       @q = Project.ransack(params[:q])
-      @projects = @q.result(distinct: true).where('projects.privacy = ?', :public)
+      @projects = @q.result(distinct: true).where('projects.privacy = ?', :public).page(params[:page])
     else
-
+      @projects = Project.where('privacy = ?', :public).order('id desc').page(params[:page])
     end
-    render :index
   end
 
   def show
@@ -39,7 +39,7 @@ class ProjectsController < ApplicationController
   def update
     @project = get_project
     if @project.update(project_params)
-      redirect_to my_projects_path, notice: t('.message.success')
+      redirect_to own_projects_path, notice: t('.message.success')
     else
       flash[:alert] = t('.message.failure')
       render :edit
@@ -49,6 +49,25 @@ class ProjectsController < ApplicationController
 
   def own
     @projects = current_user.projects.order(id: :desc)
+    render :index
+  end
+
+  def user
+    if WishList.existed?(current_user.id, project_id)
+      redirect_to my_projects_path, alert: t('.message.existed')
+    else
+      @wish_list = current_user.wish_lists.new(project_id: project_id)
+      if @wish_list.save
+        redirect_to my_projects_path, notice: t('.message.success')
+      else
+        flash[:alert] = t('.message.failure')
+        redirect_to projects_path
+      end
+    end
+  end
+
+  def my
+    @projects = current_user.wish_list_projects.page(params[:page])
     render :index
   end
 

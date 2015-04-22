@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   end
 
   resources :projects do
+    member do
+      post 'user'
+    end
     collection do
       get 'my'
       get 'own'

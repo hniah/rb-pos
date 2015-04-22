@@ -8,3 +8,8 @@ en:
       message:
         success: 'Project have been updated successfully'
         failure: 'Project have been updated unsuccessfully'
+    user:
+      message:
+        success: 'Project have been added to your wish lists successfully'
+        failure: 'Project have been added to your wish lists unsuccessfully'
+        existed: 'Project have been added to your wish lists before'

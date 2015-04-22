@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
   include RailsAdmin::User
   has_many  :projects
   belongs_to :location
+  has_many :wish_lists
+  has_many :wish_list_projects, through: :wish_lists, source: :project
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
@@ -27,5 +30,8 @@ class User < ActiveRecord::Base
     if self.location.present?
       self.location.name
     end
+  end
+  def full_name
+    self.first_name+" "+self.last_name
   end
 end

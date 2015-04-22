@@ -1,0 +1,23 @@
+#index-projects-container{
+  .project{
+    margin-bottom: 20px;
+    .project-name{
+      text-align: center;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    .info{
+      text-align: center;
+    }
+    .author_name{
+      span.author{
+        font-weight: bold;
+        padding-right: 5px;
+      }
+    }
+    .action{
+      text-align: right;
+    }
+  }
+
+}

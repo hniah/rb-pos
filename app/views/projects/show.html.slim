@@ -1,5 +1,5 @@
 #show-project-container
-  - if current_user.present? && @project.project_of?
+  - if current_user.present? && @project.project_of?(current_user)
     = link_to 'Edit', edit_project_path(@project), class: 'btn btn-success'
   .cover-image
     = image_tag @project.picture.url(:original)
