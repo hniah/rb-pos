@@ -48,7 +48,7 @@ class ProjectsController < ApplicationController
   end
 
   def own
-    @projects = current_user.projects.order(id: :desc)
+    @projects = current_user.projects.order(id: :desc).page(params[:page])
     render :index
   end
 
