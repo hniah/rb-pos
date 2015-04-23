@@ -3,7 +3,7 @@
     - @projects.each do |project|
       .col-md-4.project
         .cover-image
-          = link_to image_tag(project.picture.url(:thumb), class: 'img-responsive img-rounded'), project_path(project)
+          = link_to image_tag(project.picture.url(:thumb), class: 'responsive-img img-rounded'), project_path(project)
         .project-name
           = project.title
         table.table.info
