@@ -11,10 +11,11 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @project = get_project
     @comments = @project.comment_threads.order('created_at desc').page(params[:page])
-    if current_user.present?
-      @new_comment = Comment.build_from(@project, current_user.id, '')
+    if @user.present?
+      @new_comment = Comment.build_from(@project, @user.id, '')
     end
   end
 
