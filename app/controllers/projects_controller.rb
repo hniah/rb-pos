@@ -53,11 +53,11 @@ class ProjectsController < ApplicationController
   end
 
   def user
-    if WishList.existed?(current_user.id, project_id)
+    if UserProject.existed?(current_user.id, project_id)
       redirect_to my_projects_path, alert: t('.message.existed')
     else
-      @wish_list = current_user.wish_lists.new(project_id: project_id)
-      if @wish_list.save
+      @my_project = current_user.user_projects.new(project_id: project_id)
+      if @my_project.save
         redirect_to my_projects_path, notice: t('.message.success')
       else
         flash[:alert] = t('.message.failure')
@@ -67,7 +67,7 @@ class ProjectsController < ApplicationController
   end
 
   def my
-    @projects = current_user.wish_list_projects.page(params[:page])
+    @projects = current_user.my_projects.page(params[:page])
     render :index
   end
 

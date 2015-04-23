@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
   include RailsAdmin::User
   has_many  :projects
   belongs_to :location
-  has_many :wish_lists
-  has_many :wish_list_projects, through: :wish_lists, source: :project
+  has_many :user_projects
+  has_many :my_projects, through: :user_projects, source: :project
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

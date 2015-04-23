@@ -9,7 +9,7 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :resources
   has_many :services, inverse_of: :project
   accepts_nested_attributes_for :services
-  has_many :wish_lists
+  has_many :user_projects
 
   validates_presence_of :user_id, :category_id, :title, :cost, :time, :privacy, :difficult_level
   validates_numericality_of :cost, only_integer: true

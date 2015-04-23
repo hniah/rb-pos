@@ -151,7 +151,7 @@ describe ProjectsController do
       it 'can add project of other user to my projects' do
 
         do_request
-        expect(WishList.count).to eq 1
+        expect(UserProject.count).to eq 1
         expect(response).to redirect_to my_projects_path
         expect(flash[:notice]).to_not be_nil
 
@@ -159,7 +159,7 @@ describe ProjectsController do
     end
 
     context 'project dose not existed in my project' do
-      before { WishList.create(user_id: current_user.id, project_id: project.id) }
+      before { UserProject.create(user_id: current_user.id, project_id: project.id) }
       it 'redirect to list of projects' do
         do_request
         expect(response).to redirect_to my_projects_path

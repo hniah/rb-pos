@@ -30,7 +30,7 @@ module ProjectHelper
     if current_user.present?
       if project.project_of?(current_user)
         return link_to('Edit project', edit_project_path(project), class: 'btn btn-success').html_safe
-      elsif !WishList.existed?(current_user.id, project.id)
+      elsif !UserProject.existed?(current_user.id, project.id)
         return link_to('Add to my project', user_project_path(project), class: 'btn btn-success', method: :post).html_safe
       end
     end
