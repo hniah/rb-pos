@@ -7,6 +7,14 @@
       h3.full-name #{@user.first_name} #{@user.last_name}
       div.user-info
         table.table
+          tr.email
+            th.field_lbl Email:
+            td.field_val
+              = @user.email
+          tr.username
+            th.field_lbl Username:
+            td.field_val
+              = @user.username
           tr.gender
             th.field_lbl Gender:
             td.field_val

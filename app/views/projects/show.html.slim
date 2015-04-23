@@ -53,11 +53,12 @@
           - @project.services.each do |service|
             .item-resource
               = resource_freelancer_link(service.name)
-  - if @new_comment.present?
-    .comments
-      h2 View Comments
+
+  .comments
+    h2 View Comments
+    - if @new_comment.present?
       = render partial: 'comments/form', locals: { comment: @new_comment }
-      #list-of-comments
-        = render partial: 'comments/comment', collection: @comments, as: :comment
-      .wrap-pagination
-        = paginate @comments, params: {controller: :comments, action: :index, project_id: @project.id, id: nil}, remote: true
+    #list-of-comments
+      = render partial: 'comments/comment', collection: @comments, as: :comment
+    .wrap-pagination
+      = paginate @comments, params: {controller: :comments, action: :index, project_id: @project.id, id: nil}, remote: true
